@@ -25,10 +25,27 @@ drivers = drivers.map(driver => {
         place: randomPlace
     }
 })
+drivers.sort((a, b) => a.place - b.place)
 
 
 app.get('/api/drivers', (req, res) => {
     res.send(drivers)
+})
+
+app.post('/api/drivers/:driverId/overtake', (req, res) => {
+    const overtaker = drivers.find(driver => driver.id === +req.params.driverId)
+    if (!overtaker) {
+        res.status(406).json({error: 'Driver not found.'})
+    } else {
+        if (overtaker.place > 1) {
+            const loser = drivers.find(driver => driver.place === overtaker.place - 1)
+            overtaker.place--
+            loser.place++
+        }
+        drivers.sort((a, b) => a.place - b.place)
+        console.log(`Driver #${req.params.driverId} made an overtook to place ${overtaker.place}`)
+        res.send(200)
+    }
 })
 
 app.listen(PORT, () => console.log('Server started.'))

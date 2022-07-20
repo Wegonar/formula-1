@@ -18,7 +18,7 @@ function DriverCard({driver, onOvertake}) {
             <div className={'place'}>
                 #{driver.place}
             </div>
-            <button onClick={() => onOvertake(driver.id)}>Overtake</button>
+            {driver.place > 1 && <button onClick={() => onOvertake(driver.id)}>Overtake</button>}
         </div>
     );
 }

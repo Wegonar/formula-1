@@ -1,7 +1,6 @@
 import './DriverCard.css';
 
-function DriverCard({driver}) {
-
+function DriverCard({driver, onOvertake}) {
     return (
         <div className={'driver-card'}>
             <div className={'driver-image'}
@@ -19,7 +18,7 @@ function DriverCard({driver}) {
             <div className={'place'}>
                 #{driver.place}
             </div>
-            <button>Overtake</button>
+            <button onClick={() => onOvertake(driver.id)}>Overtake</button>
         </div>
     );
 }

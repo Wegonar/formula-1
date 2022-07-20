@@ -16,10 +16,24 @@ function App() {
             .catch(error => console.error('Error while fetching data', error))
             .finally(() => setIsLoading(false));
     }, [])
+
+    function handleOvertake(driverId) {
+        fetch(`/api/drivers/${driverId}/overtake`, {
+            method: 'post',
+            headers: {'Content-Type':'application/json'}
+        })
+            .then(response => response.json())
+            .then(response => {
+                console.log('response', response)
+                setDrivers(response)
+            })
+            .catch(error => console.error('Error while overtaking', error))
+    }
+
     return (
         <div className={'driver-list'}>
             {isLoading ? <p>Loading Drivers...</p> : (
-                drivers.map(driver => <DriverCard key={driver.id} driver={driver} />)
+                drivers.map(driver => <DriverCard key={driver.id} driver={driver} onOvertake={handleOvertake} />)
             )}
         </div>
     );

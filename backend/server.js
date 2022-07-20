@@ -35,7 +35,7 @@ app.get('/api/drivers', (req, res) => {
 app.post('/api/drivers/:driverId/overtake', (req, res) => {
     const overtaker = drivers.find(driver => driver.id === +req.params.driverId)
     if (!overtaker) {
-        res.status(406).json({error: 'Driver not found.'})
+        res.status(406).json({error: 'Invalid Driver ID.'})
     } else {
         if (overtaker.place > 1) {
             const loser = drivers.find(driver => driver.place === overtaker.place - 1)
@@ -44,7 +44,7 @@ app.post('/api/drivers/:driverId/overtake', (req, res) => {
         }
         drivers.sort((a, b) => a.place - b.place)
         console.log(`Driver #${req.params.driverId} made an overtook to place ${overtaker.place}`)
-        res.send(200)
+        res.send(drivers)
     }
 })
 

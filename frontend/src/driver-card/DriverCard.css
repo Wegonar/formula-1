@@ -1,0 +1,64 @@
+.driver-card {
+    width: 30em;
+    height: 16em;
+    position: relative;
+    background-color: #586ba4;
+    border-radius: 1%;
+    box-shadow: 0 0 24px 0 #000;
+    margin: 12px;
+}
+
+.driver-image {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.code {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.name {
+    position: absolute;
+    top: calc(50% - 1em);
+    left: 12px;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.team {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.place {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 2em;
+}
+
+button {
+    position: absolute;
+    top: calc(50% - 1em);
+    right: 12px;
+    padding: 10px 20px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background: #000;
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.5);
+}

@@ -17,11 +17,11 @@ function App() {
             .finally(() => setIsLoading(false));
     }, [])
     return (
-        <>
+        <div className={'driver-list'}>
             {isLoading ? <p>Loading Drivers...</p> : (
                 drivers.map(driver => <DriverCard key={driver.id} driver={driver} />)
             )}
-        </>
+        </div>
     );
 }
 

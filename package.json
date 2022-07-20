@@ -6,7 +6,9 @@
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "nodemon backend/server.js",
-    "client": "npm start --prefix frontend"
+    "client": "npm start --prefix frontend",
+    "install-all": "npm install && npm install --prefix frontend",
+    "install-all-start": "npm install && npm install --prefix frontend && npm start"
   },
   "author": "Janos Sutyinszki",
   "license": "ISC",
